@@ -1,0 +1,51 @@
+matriz = []
+valorparcela = 48
+
+linhas = int(input('Digite quantas notas de ativo teve esse mês:'))
+
+for i in range(0,linhas,1):
+        matriz.append([])
+
+for i in range(0,linhas,1):
+        num = float (input('\ndigite a numeração de cada nota (uma de cada vez):\n'))
+        matriz[i].append(num)
+
+for i in range (0,linhas,1):
+        print('Nota de ativo numero:\n',matriz[i])
+
+for g in range (0,linhas,1):
+        notas = float(input('\nPara calcular o ativo, precisamos de algumas informações \ndigite o valor do ativo da nota (uma de cada vez) :'))
+
+for h in range (0,linhas,1):
+        destaqueIcms = float (input('\nDigite o valor de ICMS da nota (uma de cada):'))
+
+Freteicms = float(input('\nTeve icms sobre o frete? caso tenha digite o valor, caso não digite "0", digite:'))
+
+diferencial = float(input('\nTeve diferencial de aliquota? caso tenha digite o valor, caso não digite "0", digite:'))
+ 
+saidasmes = float(input('\nDigite o valor total de saidas ou prestações de serviços do mês:'))
+
+saidastributadas = float(input('\nDigite o valor de saidas ou prestações TRIBUTADAS no mês:'))
+
+basecredito = Freteicms + diferencial + destaqueIcms
+
+coeficiente = saidastributadas/saidasmes
+
+credito = basecredito * coeficiente
+
+parcela = credito/valorparcela
+        
+print('Nota de ativo numero::',matriz[i])
+print ('\nO total em R$ de ativo no mês seria: R$', notas) #arrumar esse código pra somar o valor total do ativo
+print ('\nO valor total de ICMS destacado seria: R$', destaqueIcms)
+print ('\nO valor de icms sobre o frete seria: R$', Freteicms)
+print ('\nO valor de diferencial de aliquota do mês seria: R$',diferencial)
+print ('\nO valor de saidas mensal foi: R$',saidasmes)
+print ('\nO valor de saidas tributadas ou serviços tributador foi de: R$', saidastributadas)
+print( '\nA base de cédito a ser utilizada seria: R$',basecredito)
+print( '\nO coeficiente de cálculo seria: R$',coeficiente)
+print('\nO credito com a aplicação do coeficiente ficou em: R$', credito)
+
+parcelames = int(input('Qual parcela do mês você deseja saber? (1-48), digite:'))
+print ('a parcela seria:', parcelames,'de 48')
+print ('O valor da parcela a apropiar no mês seria:',parcela)
