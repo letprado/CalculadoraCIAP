@@ -13,11 +13,16 @@ for i in range(0,linhas,1):
 for i in range (0,linhas,1):
         print('Nota de ativo numero:\n',matriz[i])
 
+total_ativo = 0
+total_icms = 0
+
 for g in range (0,linhas,1):
         notas = float(input('\nPara calcular o ativo, precisamos de algumas informações \ndigite o valor do ativo da nota (uma de cada vez) :'))
+        total_ativo += notas
 
 for h in range (0,linhas,1):
         destaqueIcms = float (input('\nDigite o valor de ICMS da nota (uma de cada):'))
+        total_icms += destaqueIcms
 
 Freteicms = float(input('\nTeve icms sobre o frete? caso tenha digite o valor, caso não digite "0", digite:'))
 
@@ -27,7 +32,7 @@ saidasmes = float(input('\nDigite o valor total de saidas ou prestações de ser
 
 saidastributadas = float(input('\nDigite o valor de saidas ou prestações TRIBUTADAS no mês:'))
 
-basecredito = Freteicms + diferencial + destaqueIcms
+basecredito = Freteicms + diferencial + total_icms
 
 coeficiente = saidastributadas/saidasmes
 
@@ -36,8 +41,8 @@ credito = basecredito * coeficiente
 parcela = credito/valorparcela
         
 print('Nota de ativo numero::',matriz[i])
-print ('\nO total em R$ de ativo no mês seria: R$', notas) #arrumar esse código pra somar o valor total do ativo
-print ('\nO valor total de ICMS destacado seria: R$', destaqueIcms)
+print ('\nO total em R$ de ativo no mês seria: R$', total_ativo) #arrumar esse código pra somar o valor total do ativo
+print ('\nO valor total de ICMS destacado seria: R$', total_icms)
 print ('\nO valor de icms sobre o frete seria: R$', Freteicms)
 print ('\nO valor de diferencial de aliquota do mês seria: R$',diferencial)
 print ('\nO valor de saidas mensal foi: R$',saidasmes)
